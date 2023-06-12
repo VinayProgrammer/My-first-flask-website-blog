@@ -1,0 +1,76 @@
+{% extends "layout.html"%}
+{% block body %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url(' {{ url_for('static' , filename = 'img/home-bg.jpg') }} ')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Admin Panel</h1>
+          <span class="subheading">Manage your posts and change them.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h1>upload a file here</h1>
+        
+      
+<br>
+<hr>
+
+        <button class="btn btn-primary text-uppercase" ><a href="/dashboard">Dashboard Home</a></button>
+        <button class="btn btn-primary text-uppercase" ><a href="/logout">Log Out</a></button>
+<hr>
+        <h1>Add/edit Post</h1>
+
+        <form id="contactForm" action="/edit/{{sno}}" method="post" data-sb-form-api-token="API_TOKEN" novalidate>
+            <div class="form-floating">
+                <input class="form-control" name ="title" id="Title" type="text" placeholder="Title" 
+                    data-sb-validations="required" value="{{posts.title}}"/>
+                <label for="name">Title</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+            </div>
+            <div class="form-floating">
+                <input class="form-control" id="tline" name="tline" type="text" placeholder="Tag Line"
+                    data-sb-validations="required,email" value="{{posts.tagline}}" />
+                <label for="email">Tag Line</label>
+                
+            </div>
+            <div class="form-floating">
+                <input class="form-control" id="slug" name="slug" type="text" placeholder="Slug" n
+                    data-sb-validations="required" value="{{posts.slug}}" />
+                <label for="phone">Slug</label>
+
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" id="content" name = 'content' placeholder="Content" 
+                    style="height: 12rem" data-sb-validations="required" value="{{posts.content}}"></textarea>
+                <label for="message">Content</label>
+                
+            </div>
+
+            <div class="form-floating">
+                <input class="form-control" id="img_file" name = 'img_file' placeholder="Enter your message here..." 
+                    style="height: 12rem" data-sb-validations="required" value="{{posts.img_file}}"></input>
+                <label for="message">Image File</label>
+            </div>
+
+            <br />
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+
+        </form>
+      
+      <!-- Divider-->
+      <hr class="my-4" />
+      <!-- Pager-->
+      <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts
+          →</a></div>
+    </div>
+  </div>
+</div>
+{% endblock %}>
